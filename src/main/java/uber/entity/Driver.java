@@ -24,4 +24,7 @@ public class Driver extends BaseEntity{
 
     @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> driver_bookings = new ArrayList<>();
+
+    @OneToMany(mappedBy = "driver")
+    private List<DriverComments> driverComments;
 }

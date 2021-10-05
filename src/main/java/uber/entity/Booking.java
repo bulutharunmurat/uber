@@ -17,10 +17,20 @@ public class Booking extends AbstractBaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer bookingId;
     private LocalDateTime bookingDate;
+    private String carModel;
+    private String initialLocation;
+    private String lastLocation;
+    private LocalDateTime travelStartTime;
+    private LocalDateTime travelFinishTime;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "passenger_id")
     private Passenger passenger;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "driver_id")
     private Driver driver;
+
+    @OneToOne(mappedBy = "booking")
+    private Ticket ticket;
 }
