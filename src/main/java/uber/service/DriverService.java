@@ -1,18 +1,17 @@
 package uber.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uber.entity.Driver;
 import uber.repository.DriverRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class DriverService {
 
-    @Autowired
     DriverRepository driverRepository;
 
     public Driver save(Driver driver){
