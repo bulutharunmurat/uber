@@ -37,4 +37,6 @@ public class PassengerController {
     public List<Passenger> findAll(){
         return passengerService.findAll();
     }
+
+
 }

@@ -2,20 +2,25 @@ package uber.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import uber.DTO.DriverDTO;
 import uber.entity.Driver;
+import uber.mappers.DriverMapper;
 import uber.repository.DriverRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
 public class DriverService {
 
-    DriverRepository driverRepository;
+    private final DriverRepository driverRepository;
+    private final DriverMapper driverMapper;
 
-    public Driver save(Driver driver){
-        return driverRepository.save(driver);
+    public Optional<Driver> save(DriverDTO driverDTO){
+        Driver driver = driverMapper.mapFromDriverDTOToDriver(driverDTO);
+        return Optional.of(driverRepository.save(driver));
     }
 
     public List<Driver> findAll(){
