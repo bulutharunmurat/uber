@@ -1,11 +1,10 @@
 package uber.mappers;
 
-import lombok.RequiredArgsConstructor;
 import org.mapstruct.Mapper;
 import uber.DTO.PassengerDTO;
 import uber.entity.Passenger;
 
-@Mapper(componentModel = "spring")
+@Mapper
 public interface PassengerMapper {
 
     Passenger mapFromPassengerDTOtoPassenger(PassengerDTO passengerDTO);

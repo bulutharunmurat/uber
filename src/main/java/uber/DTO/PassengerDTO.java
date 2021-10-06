@@ -9,7 +9,6 @@ import uber.entity.enums.Gender;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -19,7 +18,7 @@ public class PassengerDTO {
     @ApiModelProperty(example = "12345678902")
     @NotNull(message = "SSID is mandatory")
     @NumberFormat(style = NumberFormat.Style.NUMBER)
-    private long ssid;
+    private Long ssid;
 
     @ApiModelProperty(example = "Murat")
     @NotBlank(message = "Name is mandatory!!!")
