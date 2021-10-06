@@ -39,4 +39,9 @@ public class DriverController {
     public ResponseEntity<Driver> findStudentById(@PathVariable Integer id){
         return new ResponseEntity<>(driverService.findById(id), HttpStatus.OK);
     }
+
+    @GetMapping("/driver-by-ssid/{ssid}")
+    public Driver findDriverBySSID(@PathVariable long ssid){
+        return driverService.findBySSID(ssid);
+    }
 }

@@ -36,4 +36,8 @@ public class PassengerService {
         passengerIterable.iterator().forEachRemaining(passengers::add);
         return passengers;
     }
+
+    public Passenger findBySSID(long ssid){
+        return passengerRepository.findBySsid(ssid);
+    }
 }

@@ -38,5 +38,9 @@ public class PassengerController {
         return passengerService.findAll();
     }
 
+    @GetMapping("/passenger-by-ssid/{ssid}")
+    public Passenger findBySSID(@PathVariable long ssid){
+        return passengerService.findBySSID(ssid);
+    }
 
 }

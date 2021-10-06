@@ -33,4 +33,8 @@ public class DriverService {
     public Driver findById(Integer id){
         return driverRepository.findById(id).get();
     }
+
+    public Driver findBySSID(long ssid){
+        return driverRepository.findBySSID(ssid);
+    }
 }
