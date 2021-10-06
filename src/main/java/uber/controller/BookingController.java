@@ -15,8 +15,9 @@ public class BookingController {
 
     private final BookingService bookingService;
 
-    @PostMapping("/booking/{passengerSSID}")
-    public Booking makeABooking(@PathVariable Long passengerSSID){
-        return bookingService.makeABooking(passengerSSID);
+    @PostMapping("/booking/{passengerSSID}/{driverSSID}")
+    public Booking makeABooking(@PathVariable Long passengerSSID,
+                                @PathVariable Long driverSSID){
+        return bookingService.makeABooking(passengerSSID, driverSSID);
     }
 }
