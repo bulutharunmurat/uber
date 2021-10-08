@@ -3,15 +3,12 @@ package uber.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import uber.entity.Booking;
-import uber.entity.Driver;
-import uber.entity.Passenger;
-import uber.entity.Ticket;
-import uber.entity.Payment;
+import uber.entity.*;
 import uber.repository.BookingRepository;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 
 @Service
 @RequiredArgsConstructor
@@ -33,9 +30,10 @@ public class BookingService {
         Ticket ticket = new Ticket();
         Payment payment = new Payment();
 
+        driver.setDriverRating(5F);
 
         booking.setBookingDate(LocalDateTime.now());
-//        booking.setPassenger(passenger);
+        booking.setPassenger(passenger);
         booking.setDriver(driver);
 
         // For test

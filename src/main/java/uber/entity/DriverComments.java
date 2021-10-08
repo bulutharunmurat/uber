@@ -1,5 +1,6 @@
 package uber.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -16,6 +17,9 @@ public class DriverComments extends AbstractBaseEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String comment;
+
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "driver_id")
     private Driver driver;

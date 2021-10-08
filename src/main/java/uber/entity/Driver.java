@@ -1,5 +1,7 @@
 package uber.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,10 +23,11 @@ public class Driver extends BaseEntity{
 
     private Float driverRating;
 
-
+    @JsonManagedReference
     @OneToMany(mappedBy = "driver", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> driver_bookings = new ArrayList<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "driver")
     private List<DriverComments> driverComments;
 }
