@@ -1,6 +1,7 @@
 package uber.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,6 +35,7 @@ public class Booking extends AbstractBaseEntity {
     @JoinColumn(name = "driver_id")
     private Driver driver;
 
+    @JsonManagedReference
     @OneToOne(mappedBy = "booking")
     private Ticket ticket;
 }

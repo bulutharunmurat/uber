@@ -33,6 +33,7 @@ public class Passenger extends BaseEntity{
     @OneToMany(mappedBy = "passenger", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Booking> passenger_bookings = new ArrayList<>();
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "passenger")
     private List<Payment> payments = new ArrayList<>();
 
