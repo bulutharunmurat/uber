@@ -1,6 +1,8 @@
 package uber.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +20,7 @@ import java.util.Optional;
 public class PassengerController {
 
     private final PassengerService passengerService;
+    private final Logger logger = LoggerFactory.getLogger(PassengerController.class);
 
     @PostMapping("/passengers")
     public ResponseEntity<Passenger> savePassenger(@RequestBody @Valid PassengerDTO passengerDTO){
@@ -34,7 +37,8 @@ public class PassengerController {
     }
 
     @GetMapping("/passengers")
-    public List<Passenger> findAll(){
+    public List<Passenger> findAll(@RequestHeader("correlationId") String correlationId){
+        logger.info("findAll() method executed for all passengers, correlationId is: {} ", correlationId);
         return passengerService.findAll();
     }
 

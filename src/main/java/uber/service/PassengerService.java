@@ -1,9 +1,12 @@
 package uber.service;
 
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import uber.DTO.PassengerDTO;
+import uber.controller.PassengerController;
 import uber.entity.Passenger;
 import uber.mappers.PassengerMapper;
 import uber.repository.PassengerRepository;
@@ -18,6 +21,8 @@ public class PassengerService {
 
     private final PassengerRepository passengerRepository;
     private final PassengerMapper passengerMapper;
+    private final Logger logger = LoggerFactory.getLogger(PassengerService.class);
+
 
     @Transactional
     public Optional<Passenger> save(PassengerDTO passengerDTO){
